@@ -14,7 +14,7 @@ This web scrapper runs on AWS with a headless Chromium browser and Puppeteer.
 
 ## Run (Local)
 
--   run the service via `npm run deploy`
+-   run the service via `yarn serve`
 
 ## Deploy (Production)
 
