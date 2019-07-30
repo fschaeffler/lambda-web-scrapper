@@ -5,7 +5,10 @@ provider:
   runtime: nodejs8.10
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'eu-central-1'}
-  environment: ${file(.env/env.yml):${self:provider.stage}}
+  timeout: 10
+  memorySize: 1600
+  apiKeys:
+    - ${self:service}-${self:provider.stage}
 
 custom:
   webpack:
@@ -27,6 +30,7 @@ functions:
       - http:
           path: /scrape
           method: post
+          private: true
 
 plugins:
   - serverless-offline

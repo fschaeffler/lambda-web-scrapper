@@ -46,7 +46,6 @@
         "@babel/register": "^7.4.0",
         "babel-loader": "^8.0.5",
         "babel-plugin-source-map-support": "^2.0.1",
-        "dotenv": "^7.0.0",
         "eslint": "^5.16.0",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-config-prettier": "^4.2.0",
@@ -66,7 +65,6 @@
         "@babel/runtime": "^7.4.3",
         "@hapi/joi": "^15.1.0",
         "chrome-aws-lambda": "^1.19.0",
-        "install": "^0.13.0",
         "puppeteer-core": "^1.19.0",
         "source-map-support": "^0.5.12"
     }
