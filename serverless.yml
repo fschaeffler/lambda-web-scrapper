@@ -20,8 +20,6 @@ custom:
 
 package:
   individually: false
-  exclude:
-    - .env/env.example
 
 functions:
   scrape:
