@@ -1,0 +1,33 @@
+service: web-scrapper
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'eu-central-1'}
+  environment: ${file(.env/env.yml):${self:provider.stage}}
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    packager: 'yarn'
+    includeModules:
+      forceExclude:
+        - aws-sdk
+
+package:
+  individually: false
+  exclude:
+    - .env/env.example
+
+functions:
+  scrape:
+    handler: src/handlers/scrape.default
+    events:
+      - http:
+          path: /scrape
+          method: post
+
+plugins:
+  - serverless-offline
+  - serverless-webpack

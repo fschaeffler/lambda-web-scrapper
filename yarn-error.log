@@ -1,0 +1,99 @@
+Arguments: 
+  /home/flo/.nvm/versions/node/v8.13.0/bin/node /home/flo/.yarn/bin/yarn.js add chrome-aws-lambda
+
+PATH: 
+  /home/flo/.yarn/bin:/home/flo/.config/yarn/global/node_modules/.bin:/home/flo/.nvm/versions/node/v8.13.0/bin:/home/flo/.rvm/gems/ruby-2.3.1/bin:/home/flo/.rvm/gems/ruby-2.3.1@global/bin:/home/flo/.rvm/rubies/ruby-2.3.1/bin:/home/flo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/flo/sdk/android-sdk-linux/tools:/home/flo/sdk/android-sdk-linux/platforms:/home/flo/sdk/android-sdk-linux/tools:/home/flo/sdk/android-sdk-linux/platform-tools:/home/flo/.rvm/bin:/home/flo/.rvm/bin:/home/flo/android-studio/bin:/home/flo/android-sdk-linux:/home/flo/android-sdk-linux/tools:/home/flo/android-sdk-linux/platform-tools:/home/flo/bin:/home/flo/Downloads/genymotion
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  8.13.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/flo/dev/upwork/web-scraper/package.json: Unexpected token } in JSON at position 2024
+      at JSON.parse (<anonymous>)
+      at /home/flo/.yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/home/flo/.yarn/lib/cli.js:304:30)
+      at /home/flo/.yarn/lib/cli.js:315:13
+      at <anonymous>
+
+npm manifest: 
+  {
+      "name": "web-scrapper",
+      "version": "0.0.1",
+      "description": "AWS Serverless Web Scrapper with Puppeteer",
+      "license": "MIT",
+      "engines": {
+          "node": ">=8.10 <=8.11"
+      },
+      "scripts": {
+          "preinstall": "node tools/preinstall.js",
+          "serve": "npx sls offline start --stage local --local --watch --noTimeout",
+          "deploy": "npx sls deploy --stage prod",
+          "destroy": "npx sls remove --stage prod",
+          "lint": "eslint ./src"
+      },
+      "husky": {
+          "hooks": {
+              "pre-commit": "lint-staged"
+          }
+      },
+      "lint-staged": {
+          "src/**/*.js": [
+              "npx prettier --write",
+              "npx yarn lint -- --fix",
+              "git add"
+          ],
+          "tools/*.js": [
+              "npx prettier --write",
+              "npx yarn lint -- --fix",
+              "git add"
+          ],
+          "**/*.json": [
+              "npx prettier --write",
+              "git add"
+          ],
+          "**/*.md": [
+              "npx prettier --write",
+              "git add"
+          ]
+      },
+      "devDependencies": {
+          "@babel/core": "^7.4.3",
+          "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+          "@babel/plugin-transform-runtime": "^7.4.3",
+          "@babel/preset-env": "^7.4.3",
+          "@babel/register": "^7.4.0",
+          "babel-loader": "^8.0.5",
+          "babel-plugin-source-map-support": "^2.0.1",
+          "dotenv": "^7.0.0",
+          "eslint": "^5.16.0",
+          "eslint-config-airbnb": "^17.1.0",
+          "eslint-config-prettier": "^4.2.0",
+          "eslint-plugin-import": "^2.17.2",
+          "eslint-plugin-jsx-a11y": "^6.2.1",
+          "eslint-plugin-promise": "^4.1.1",
+          "eslint-plugin-react": "^7.12.4",
+          "husky": "^2.1.0",
+          "lint-staged": "^8.1.5",
+          "serverless-offline": "^4.9.4",
+          "serverless-webpack": "^5.2.0",
+          "webpack": "^4.30.0",
+          "webpack-node-externals": "^1.7.2"
+      },
+      "dependencies": {
+          "@babel/runtime": "^7.4.3",
+          "source-map-support": "^0.5.12",
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

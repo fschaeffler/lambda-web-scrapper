@@ -1,0 +1,73 @@
+{
+    "name": "web-scrapper",
+    "version": "0.0.1",
+    "description": "AWS Serverless Web Scrapper with Puppeteer",
+    "license": "MIT",
+    "engines": {
+        "node": ">=8.10 <=8.11"
+    },
+    "scripts": {
+        "preinstall": "node tools/preinstall.js",
+        "serve": "npx sls offline start --stage local --local --watch --noTimeout",
+        "deploy": "npx sls deploy --stage prod",
+        "destroy": "npx sls remove --stage prod",
+        "lint": "eslint ./src"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.js": [
+            "npx prettier --write",
+            "npx yarn lint -- --fix",
+            "git add"
+        ],
+        "tools/*.js": [
+            "npx prettier --write",
+            "npx yarn lint -- --fix",
+            "git add"
+        ],
+        "**/*.json": [
+            "npx prettier --write",
+            "git add"
+        ],
+        "**/*.md": [
+            "npx prettier --write",
+            "git add"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.3",
+        "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+        "@babel/plugin-transform-runtime": "^7.4.3",
+        "@babel/preset-env": "^7.4.3",
+        "@babel/register": "^7.4.0",
+        "babel-loader": "^8.0.5",
+        "babel-plugin-source-map-support": "^2.0.1",
+        "dotenv": "^7.0.0",
+        "eslint": "^5.16.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-prettier": "^4.2.0",
+        "eslint-plugin-import": "^2.17.2",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-promise": "^4.1.1",
+        "eslint-plugin-react": "^7.12.4",
+        "husky": "^2.1.0",
+        "lint-staged": "^8.1.5",
+        "puppeteer": "^1.19.0",
+        "serverless-offline": "^4.9.4",
+        "serverless-webpack": "^5.2.0",
+        "webpack": "^4.30.0",
+        "webpack-node-externals": "^1.7.2"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.4.3",
+        "@hapi/joi": "^15.1.0",
+        "chrome-aws-lambda": "^1.19.0",
+        "install": "^0.13.0",
+        "puppeteer-core": "^1.19.0",
+        "source-map-support": "^0.5.12"
+    }
+}
