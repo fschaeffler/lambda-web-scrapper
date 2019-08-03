@@ -1,4 +1,4 @@
-# Web Scrapper
+# AWS Lambda Web Scrapper
 
 This web scrapper runs on AWS with a headless Chromium browser and Puppeteer.
 

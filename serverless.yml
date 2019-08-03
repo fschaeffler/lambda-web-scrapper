@@ -1,4 +1,4 @@
-service: web-scrapper
+service: lambda-web-scrapper
 
 provider:
   name: aws

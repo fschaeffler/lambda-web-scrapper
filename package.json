@@ -1,5 +1,5 @@
 {
-    "name": "web-scrapper",
+    "name": "lambda-web-scrapper",
     "version": "0.0.1",
     "description": "AWS Serverless Web Scrapper with Puppeteer",
     "license": "MIT",
